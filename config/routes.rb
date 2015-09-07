@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- 
+
   #pages routes
   root 'pages#index'
   get '/about', to: 'pages#show'
@@ -10,9 +10,19 @@ Rails.application.routes.draw do
   #tags
   resources :tags
 
+  #sessions
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+
+  #users
+  get '/signup', to: 'users#new'
+  get '/profile', to: 'users#show'
+  resources :users, only: [:create]
+
 end
 
-#   Prefix Verb   URI Pattern                   Controller#Action
+# Prefix Verb   URI Pattern                   Controller#Action
 #          root GET    /                             pages#index
 #         about GET    /about(.:format)              pages#show
 #     resources GET    /resources(.:format)          resources#index
@@ -31,3 +41,9 @@ end
 #               PATCH  /tags/:id(.:format)           tags#update
 #               PUT    /tags/:id(.:format)           tags#update
 #               DELETE /tags/:id(.:format)           tags#destroy
+#         login GET    /login(.:format)              sessions#new
+#               POST   /login(.:format)              sessions#create
+#        logout GET    /logout(.:format)             sessions#destroy
+#        signup GET    /signup(.:format)             users#new
+#       profile GET    /profile(.:format)            users#show
+#         users POST   /users(.:format)              users#create

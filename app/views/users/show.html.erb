@@ -1,0 +1,15 @@
+<%= render 'layouts/nav' %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-sx-offset 2">
+      <h1>Welcome <%= @user.first_name %></h1>
+      <br>
+      <address>
+        <strong><%= @user.full_name %></strong><br>
+        <%= @user.email %>
+      </address>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
