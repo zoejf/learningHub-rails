@@ -1,2 +1,27 @@
-<h1>Resources#index</h1>
-<p>Find me in app/views/resources/index.html.erb</p>
+<div id="resources-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <br>
+        <span class="section-heading"><h1>All Learning Resources</h1></span>
+        <% @resources.each do |resource| %>
+            <div class="row">
+              <div class="col-xs-2">
+                <div class="thumbnail resource"><img src="<%= resource.image %>" class="logo"></div>
+              </div>
+              <div class="col-xs-10">
+                <h3 style="font-size:20px"><a href="<%= resource.website %>"><%= resource.name %></a> <small class="pull-right"><i class="fa fa-thumbs-up"> 3 people endorse it</i></small></h3> 
+                <p><strong>Price: </strong><%= resource.price %></p>
+                <p><% resource.tags.each do |tag| %>
+                    <i class="fa <%= tag.image %>"></i>&nbsp;<%= tag.text %> &nbsp;&nbsp;
+                  <% end %>
+                </p>
+                <p><%= resource.description %></p>
+              </div>
+            </div>
+            <br>
+        <% end %>
+        </div>
+    </div>
+  </div> 
+</div>  <!-- end of resources section -->

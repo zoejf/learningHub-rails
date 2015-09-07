@@ -1,2 +1,132 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<div id="background-photo">
+  <nav class="navbar navbar-default homepage">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">LearningHub</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div id="welcome-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="headline">
+            <h1>There are so many resources for learning to code, it can get overwhelming.</h1>
+            <h3>LearningHub helps you find the right tools to meet your goals.</h3>
+            <br>
+          </div>
+          <!-- <div class="form">
+            <form class="form-inline" role="search">
+              <div class="form-group">
+                <label><input type="text" size="35" class="form-control main-search" placeholder="What do you want to learn?"></label>
+              </div>
+              <button type="submit" class="btn btn-default btn-success">Go!</button>
+            </form> -->
+          <!-- </div> -->
+          <br>
+        </div>
+      </div> 
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div><!-- end of welcome section -->
+</div><!-- end of background image -->
+<div id="tags-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <br>
+        <span class="section-heading"><h1>Popular Searches</h1></span>
+        <br>
+        <div class="row">
+          <% @tags.each do |tag| %>
+            <div class="col-sm-3">
+              <div class="thumbnail tag">
+                <%= link_to(tag_path(tag)) do %>
+                  <i class="fa <%= tag.image %>"></i>
+                  <% end %>
+                  <br>
+                  <%= tag.text %>
+              </div>
+            </div>
+          <% end  %>
+        </div>
+        <br>
+        <br>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+</div> <!-- end of tags section -->
+<div id="resources-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <br>
+        <span class="section-heading"><h1>Popular Learning Resources</h1></span>
+          <% @resources.limit(5).each do |resource| %>
+            <div class="row">
+              <div class="col-xs-2">
+                <div class="thumbnail resource"><img src="<%= resource.image %>" class="logo"></div>
+              </div>
+              <div class="col-xs-10">
+               <h3 style="font-size:20px"><a href="<%= resource.website %>"><%= resource.name %></a> <small class="pull-right"><i class="fa fa-thumbs-up"> 3 people use it</i></small></h3> 
+                <p><strong>Price: </strong><%= resource.price %></p>
+                <p><% resource.tags.each do |tag| %>
+                      <%= link_to(tag_path(tag)) do %>
+                        <i class="fa <%= tag.image %>"></i>
+                        &nbsp;<%= tag.text %> 
+                      <% end %>
+                        &nbsp;&nbsp;
+                    <% end %>
+                </p>
+                <p><%= resource.description %></p>
+              </div>
+            </div>
+            <br>
+        <% end %>
+    </div>
+  </div> 
+</div>  <!-- end of resources section -->
