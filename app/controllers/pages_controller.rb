@@ -5,6 +5,6 @@ class PagesController < ApplicationController
     render :index
   end
 
-  def show
+  def about
   end
 end

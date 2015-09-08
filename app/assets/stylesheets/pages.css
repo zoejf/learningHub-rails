@@ -6,7 +6,13 @@
 
 .section-heading {
   text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
 }
+
+.grey-color {
+  color: #333333;
+}
+
 
 /*NAVBAR STYLES*/
 .navbar-default.homepage {
@@ -32,6 +38,9 @@
 .navbar-default .navbar-brand:hover {
   color: white;
 }
+.navbar-brand {
+  font-family: 'Josefin Sans', sans-serif;
+}
 /*end of navbar styles*/
 
 /*link styles*/
@@ -46,9 +55,18 @@ body a:focus {
   color:#333;
 }
 
+#start a {
+  color: #1B7AA9;
+}
+
+#start a:hover {
+  color: white;
+}
+
 .headline {
   text-align: center;
   color: white;
+  font-family: 'Josefin Sans', sans-serif;
 }
 /*end of link styles*/
 
@@ -73,4 +91,14 @@ p.line-spacing {
 }
 .logo {
   max-height: 100px;
+}
+
+.tag-container {
+  height: 75px !important;
+  margin: 8px;
+}
+.tag-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }

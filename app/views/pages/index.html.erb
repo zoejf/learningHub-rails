@@ -28,7 +28,7 @@
                 <li><%= link_to "Log In", login_path %></li>
               <% end %>
               <li role="separator" class="divider"></li>
-              <li><a href="#">About LearningHub</a></li>
+              <li><%= link_to "About LearningHub", about_path %></li>
             </ul>
           </li>
         </ul>
@@ -45,9 +45,13 @@
           <br>
           <br>
           <div class="headline">
-            <h1>There are so many resources for learning to code, it can get overwhelming.</h1>
-            <h3>LearningHub helps you find the right tools to meet your goals.</h3>
+            <p style="font-size:40px">Learning to code is hard enough. Don't spend all of your time trying to find the right resources.</p>
             <br>
+            <p class="grey-color"style="font-size:30px">LearningHub helps you find the right tools to meet your goals.</p>
+            <br>
+            <br>
+            <span class="btn btn-default btn-lg" id="start"><a href="#tags-section">Start exploring</a></span>
+
           </div>
           <!-- <div class="form">
             <form class="form-inline" role="search">
@@ -80,14 +84,18 @@
         <br>
         <div class="row">
           <% @tags.each do |tag| %>
-            <div class="col-sm-3">
-              <%= link_to(tag_path(tag)) do %>
-                <div class="thumbnail tag">
-                  <i class="fa <%= tag.image %>"></i>
-                  <br>
-                  <%= tag.text %>
-                </div>
-              <% end %>
+            <div class="col-sm-3 col-xs-6">
+              <!-- <div class=""> -->
+                <%= link_to(tag_path(tag)) do %>
+                  <div class="thumbnail tag tag-container">
+                    <div class="tag-content">
+                      <i class="fa <%= tag.image %>"></i>
+                      <br>
+                      <%= tag.text %>
+                    </div>
+                  </div>
+                <% end %>
+              <!-- </div> -->
             </div>
           <% end  %>
         </div>

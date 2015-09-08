@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   #pages routes
   root 'pages#index'
-  get '/about', to: 'pages#show'
+  get '/about', to: 'pages#about'
 
   #resources
   resources :resources
@@ -22,9 +22,9 @@ Rails.application.routes.draw do
 
 end
 
-# Prefix Verb   URI Pattern                   Controller#Action
+#  Prefix Verb   URI Pattern                   Controller#Action
 #          root GET    /                             pages#index
-#         about GET    /about(.:format)              pages#show
+#         about GET    /about(.:format)              pages#about
 #     resources GET    /resources(.:format)          resources#index
 #               POST   /resources(.:format)          resources#create
 #  new_resource GET    /resources/new(.:format)      resources#new
