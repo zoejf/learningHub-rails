@@ -11,7 +11,8 @@
                 <div class="thumbnail resource"><img src="<%= resource.image %>" class="logo"></div>
               </div>
               <div class="col-xs-10">
-                <h3 style="font-size:20px"><a href="<%= resource.website %>"><%= resource.name %></a> <small class="pull-right"><i class="fa fa-thumbs-up"> 3 people endorse it</i></small></h3> 
+                <h3 style="font-size:20px"><%= link_to resource.name, resource_path(resource) %><small class="pull-right"><i class="fa fa-thumbs-up"> 3 people endorse it</i></small></h3>
+                <p><a href="<%= resource.website %>"> <%= resource.website %></a></p> 
                 <p><strong>Price: </strong><%= resource.price %></p>
                 <p class="line-spacing"><% resource.tags.each do |tag| %>
                     <span class="btn btn-default btn-xs">

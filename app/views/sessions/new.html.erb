@@ -5,7 +5,7 @@
   <br>
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3 well">
-      <h1>Log In</h1>
+      <h1 class="text-center">Log In</h1>
       <%= form_for :user, url:"/login", method: "post" do |f| %>
         <div class="form-group">
           <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
@@ -13,7 +13,7 @@
         <div class="form-group">
           <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
         </div>
-        <%= f.submit "Log In", class: "btn btn-default" %>
+        <center><%= f.submit "Log In", class: "btn btn-default" %></center>
       <% end %>
     </div>
   </div>

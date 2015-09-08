@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
 
   #resources
-  resources :resources
+  get '/signup', 
+  resources :resources, except: [:new, :show]
 
   #tags
   resources :tags
