@@ -50,6 +50,11 @@ body a:focus {
   text-align: center;
   color: white;
 }
+/*end of link styles*/
+
+p.line-spacing {
+  line-height: 2;
+}
 
 /*thumbnail styles*/
 

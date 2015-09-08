@@ -44,10 +44,10 @@ zoe = User.create({first_name: 'Zoe', last_name: 'Test', email: 'zoe@test.com', 
 demo = User.create({first_name: 'Demo', last_name: 'Demo', email: 'demo@test.com', password: 'demo'})
 
 
-kahn.tags << [teachers, online, community, free, beginners, ruby, javascript, html, sql, advanced]
+kahn.tags << [teachers, online, free, beginners, community, ruby, javascript, html, sql, advanced]
 udacity.tags << [degree, teachers, online, community, beginners, iOS, ruby, javascript, html]
 treehouse.tags << [teachers, online, community, beginners, advanced, iOS, ruby, javascript, html, advanced]
-ga.tags <<  [degree, teachers, online, community, inperson, beginners, free, bootcamp, ruby, javascript, sql, html, advanced]
+ga.tags <<  [degree, teachers, online, inperson, beginners, community, free, bootcamp, ruby, javascript, sql, html, advanced]
 
 zoe.resources << [kahn, ga]
 demo.resources << [udacity, treehouse]

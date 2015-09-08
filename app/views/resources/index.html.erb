@@ -13,9 +13,15 @@
               <div class="col-xs-10">
                 <h3 style="font-size:20px"><a href="<%= resource.website %>"><%= resource.name %></a> <small class="pull-right"><i class="fa fa-thumbs-up"> 3 people endorse it</i></small></h3> 
                 <p><strong>Price: </strong><%= resource.price %></p>
-                <p><% resource.tags.each do |tag| %>
-                    <i class="fa <%= tag.image %>"></i>&nbsp;<%= tag.text %> &nbsp;&nbsp;
-                  <% end %>
+                <p class="line-spacing"><% resource.tags.each do |tag| %>
+                    <span class="btn btn-default btn-xs">
+                      <%= link_to(tag_path(tag)) do %>
+                        <i class="fa <%= tag.image %>"></i>
+                        &nbsp;<%= tag.text %> 
+                      <% end %>
+                    </span>
+                    &nbsp;&nbsp;&nbsp;
+                   <% end %>
                 </p>
                 <p><%= resource.description %></p>
               </div>
