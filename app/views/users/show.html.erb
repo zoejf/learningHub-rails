@@ -1,0 +1,40 @@
+<%= render 'layouts/nav' %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-sx-offset 2">
+      <h1>Welcome <%= @user.first_name %></h1>
+      <br>
+      <address>
+        <strong><%= @user.full_name %></strong><br>
+        <%= @user.email %>
+      </address>
+      <br>
+      <br>
+      <% if @user.resources.any? %>
+        <% @user.resources.each do |resource| %>
+          <div class="row">
+            <div class="col-xs-2">
+              <div class="thumbnail resource"><img src="<%= resource.image %>" class="logo"></div>
+            </div>
+            <div class="col-xs-10">
+             <h3 style="font-size:20px"><a href="<%= resource.website %>"><%= resource.name %></a> <small class="pull-right"><i class="fa fa-thumbs-up"> 3 people use it</i></small></h3> 
+              <p><strong>Price: </strong><%= resource.price %></p>
+              <p><% resource.tags.each do |tag| %>
+                    <%= link_to(tag_path(tag)) do %>
+                      <i class="fa <%= tag.image %>"></i>
+                      &nbsp;<%= tag.text %> 
+                    <% end %>
+                      &nbsp;&nbsp;
+                  <% end %>
+              </p>
+              <p><%= resource.description %></p>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>You don't have any resources bookmarked yet! <%= link_to "Start exploring", resources_path %> </p>
+      <% end %>
+
+    </div>
+  </div>
+</div>
