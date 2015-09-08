@@ -22,7 +22,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
+    if current_user
+      @user = User.find(current_user.id)  
+    else
+      redirect_to login_path
+    end
+    
   end
 
   private

@@ -4,17 +4,22 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user_params = params.require(:user)
-    user = User.confirm(user_params[:email], user_params[:password])
-    if user
-      login(user)
+    user = User.find_by_email(user_params[:email])
+    if user && user.authenticate(user_params[:password])
+      session[:user_id] = user.id 
       redirect_to profile_path
     else
-      #flash error messages
-      redirect_to '/login'
+      redirect_to login_path
     end
   end
 
   def destroy
+    session[:user_id] = nil
+    redirect_to root_path
   end
+
+  private 
+    def user_params
+      params.require(:user).permit(:email, :password)
+    end
 end

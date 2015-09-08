@@ -40,8 +40,14 @@ html = Tag.create({image: 'fa-file-code-o', text: 'HTML/CSS'})
 sql = Tag.create({image: 'fa-database', text: 'SQL Databases'})
 advanced = Tag.create({image: 'fa-line-chart', text: 'Advanced Courses'})
 
+zoe = User.create({first_name: 'Zoe', last_name: 'Test', email: 'zoe@test.com', password: 'test'})
+demo = User.create({first_name: 'Demo', last_name: 'Demo', email: 'demo@test.com', password: 'demo'})
+
 
 kahn.tags << [teachers, online, community, free, beginners, ruby, javascript, html, sql, advanced]
 udacity.tags << [degree, teachers, online, community, beginners, iOS, ruby, javascript, html]
 treehouse.tags << [teachers, online, community, beginners, advanced, iOS, ruby, javascript, html, advanced]
 ga.tags <<  [degree, teachers, online, community, inperson, beginners, free, bootcamp, ruby, javascript, sql, html, advanced]
+
+zoe.resources << [kahn, ga]
+demo.resources << [udacity, treehouse]
