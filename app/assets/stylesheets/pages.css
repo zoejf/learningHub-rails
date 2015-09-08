@@ -24,6 +24,7 @@
 }
 .navbar-default .navbar-nav>li>a:hover {
   color: white;
+  text-decoration: none;
 }
 .navbar-default .navbar-nav>li>a:focus {
   color: #1B7AA9;
@@ -32,6 +33,18 @@
   color: white;
 }
 /*end of navbar styles*/
+
+/*link styles*/
+body a {
+  color:#333;
+}
+body a:hover {
+  color:#1B7AA9;
+  text-decoration: none;
+}
+body a:focus {
+  color:#333;
+}
 
 .headline {
   text-align: center;
@@ -48,6 +61,10 @@
 .thumbnail.tag {
   text-align: center;
   word-wrap: normal;
+}
+.thumbnail.tag:hover {
+  background-color:#c8c8c8;
+  text-decoration: none;
 }
 .logo {
   max-height: 100px;

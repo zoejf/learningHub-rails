@@ -81,13 +81,13 @@
         <div class="row">
           <% @tags.each do |tag| %>
             <div class="col-sm-3">
-              <div class="thumbnail tag">
-                <%= link_to(tag_path(tag)) do %>
+              <%= link_to(tag_path(tag)) do %>
+                <div class="thumbnail tag">
                   <i class="fa <%= tag.image %>"></i>
-                  <% end %>
                   <br>
                   <%= tag.text %>
-              </div>
+                </div>
+              <% end %>
             </div>
           <% end  %>
         </div>
@@ -116,7 +116,7 @@
                 <div class="thumbnail resource"><img src="<%= resource.image %>" class="logo"></div>
               </div>
               <div class="col-xs-10">
-               <h3 style="font-size:20px"><a href="<%= resource.website %>"><%= resource.name %></a> <small class="pull-right"><i class="fa fa-thumbs-up"> 3 people use it</i></small></h3> 
+               <h3 style="font-size:20px"><a href="<%= resource.website %>" target="_blank"><%= resource.name %></a> <small class="pull-right"><i class="fa fa-thumbs-up"> 3 people use it</i></small></h3> 
                 <p><strong>Price: </strong><%= resource.price %></p>
                 <p><% resource.tags.each do |tag| %>
                       <%= link_to(tag_path(tag)) do %>
