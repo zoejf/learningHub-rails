@@ -116,7 +116,21 @@
                 <div class="thumbnail resource"><img src="<%= resource.image %>" class="logo"></div>
               </div>
               <div class="col-xs-10">
-               <h3 style="font-size:20px"><a href="<%= resource.website %>" target="_blank"><%= resource.name %></a> <small class="pull-right"><i class="fa fa-thumbs-up"> 3 people use it</i></small></h3> 
+               <h3 style="font-size:20px">
+                  <a href="<%= resource.website %>" target="_blank"><%= resource.name %></a> 
+                  <small> &nbsp;&nbsp;
+                    <% if current_user %>
+                      <a href="javascript:void(0)" class="bookmark" data-id="<%= resource.id %>">
+                       <% if current_user.bookmarks.include?(resource) %>
+                          <i class="fa fa-bookmark"></i>
+                       <% else %>
+                          <i class="fa fa-bookmark-o"></i>
+                       <% end %> 
+                      </a>
+                    <% end %>
+                    <span class="pull-right"><i class="fa fa-thumbs-up"> 3 people use it</i></span>
+                  </small>
+                </h3> 
                 <p><strong>Price: </strong><%= resource.price %></p>
                 <p class="line-spacing"><% resource.tags.each do |tag| %>
                     <span class="btn btn-default btn-xs">

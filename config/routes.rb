@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'bookmarks/create'
+
   #pages routes
   root 'pages#index'
   get '/about', to: 'pages#about'
@@ -20,6 +22,8 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#show'
   resources :users, only: [:create]
 
+  #bookmarks
+  resources :bookmarks, only: [:create]
 end
 
 #  Prefix Verb   URI Pattern                   Controller#Action
