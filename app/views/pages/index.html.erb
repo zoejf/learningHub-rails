@@ -129,6 +129,7 @@
                       </a>
                     <% end %>
                     <span class="pull-right">
+                      <% if current_user %>
                         <a href="javascript:void(0)" class="endorsement" data-id="<%= resource.id %>">
                           <% if current_user && current_user.endorsements.include?(resource) %>
                             <i class="fa fa-thumbs-up"></i>
@@ -136,8 +137,11 @@
                             <i class="fa fa-thumbs-o-up"></i> 
                           <% end %>
                         </a>
-                      <%= resource.endorsements.length %> 
-                      <% if resource.endorsements.length == 1 %>
+                      <% else %>
+                        <i class="fa fa-users"></i> &nbsp;
+                      <% end %>
+                      <span class="endorsement-count"><%= resource.endorsements.count %> </span>
+                      <% if resource.endorsements.count == 1 %>
                         person uses it
                       <% else %>
                         people use it

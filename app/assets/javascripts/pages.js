@@ -2,20 +2,45 @@ $(function() {
 
   $('.endorsement').on('click', function() {
     var $endorsementIcon = $(this).find('.fa');
+    var $endorsementCount = $(this).next('.endorsement-count');
+    var count = parseInt($endorsementCount.text());
 
     //if not endorsed yet
     if ($endorsementIcon.hasClass('fa-thumbs-o-up')) {
+
       //fill in the thumbs-up icon 
       $endorsementIcon.removeClass('fa-thumbs-o-up').addClass('fa-thumbs-up');
 
-      $.post('/')
+      $.post('/endorsements', {
+        endorsement: { resource_id: $(this).attr('data-id')}
+        },
+        function (data) {
+          console.log(data);
+          $endorsementCount.text(count + 1);
+        }
+      )
 
     //else it's already been endorsed
     } else {
+      //change thumbs up from filled to un-filled
+      $endorsementIcon.removeClass('fa-thumbs-up').addClass('fa-thumbs-o-up');
 
-    };
+      //find id for resource to be un-endorsed
+      resourceId = $(this).attr('data-id');
+      console.log(resourceId)
 
-  });
+      //$.ajax method:delete
+      $.ajax({
+        url: '/endorsements/' + resourceId,
+        method: 'DELETE',
+        success: function (data) {
+          console.log(data);
+          $endorsementCount.text(count - 1);
+        } 
+      });
+
+    };//end of else statment
+  }); //end of endorsement event listener
 
   $('.bookmark').on('click', function() {
     var $bookmarkIcon = $(this).find('.fa');
@@ -52,5 +77,6 @@ $(function() {
         } 
       });
     }; //end of else statement
-  })
-})
+  }); //end of bookmark event listener
+
+});
