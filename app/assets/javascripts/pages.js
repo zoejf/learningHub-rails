@@ -22,13 +22,14 @@ $(function() {
       //change bookmark icon from filled to unfilled
       $bookmarkIcon.removeClass('fa-bookmark').addClass('fa-bookmark-o');
 
-      //find id for bookmark
-      bookmarkId = $(this).attr('data-id');
+      //find id for resource to be un-bookmarked
+      resourceId = $(this).attr('data-id');
+      console.log(resourceId)
 
       //$.ajax method:delete
       $.ajax({
-        url: '/bookmarks/' + bookmarkId,
-        type: 'DELETE',
+        url: '/bookmarks/' + resourceId,
+        method: 'DELETE',
         success: function (data) {
           console.log(data);
         } 

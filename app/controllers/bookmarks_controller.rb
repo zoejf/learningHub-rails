@@ -2,6 +2,7 @@ class BookmarksController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def create
+    bookmark_params = params.require(:bookmark).permit(:resource_id, :id)
     resource = Resource.find_by_id(bookmark_params[:resource_id])
 
     #check if current_user already has bookmarked this post
@@ -23,16 +24,21 @@ class BookmarksController < ApplicationController
 
   def destroy
     p "inside controller"
-    p "bookmark params #{bookmark_params}" 
-    #find bookmark (entry in join table) by id
-    bookmark = current_user.bookmarks.find_by_resource_id(bookmark_params[:id])
-    p bookmark
-    #find that bookmark in bookmarks join table and delete that entry
-    bookmark.destroy;
+    p "bookmark params #{params[:id]}" 
+    #find bookmark (entry in join table) by resource_id
+    bookmark = current_user.bookmarks.where(resource_id: params[:id])
+    
+    #if that bookmark exists, delete it
+    if bookmark.any?
+      bookmark.first.destroy
+      render json: bookmark.first.destroy
+    else
+      render json: {}, status: :bad_request
+    end
   end
 
-  private
-  def bookmark_params
-    params.require(:bookmark).permit(:resource_id, :id)
-  end
+  # private
+  # def bookmark_params
+  #   params.require(:bookmark).permit(:resource_id, :id)
+  # end
 end
