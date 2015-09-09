@@ -77,7 +77,7 @@
           <% @tags.each do |tag| %>
             <div class="col-sm-3 col-xs-6">
               <!-- <div class=""> -->
-                <%= link_to(tag_path(tag)) do %>
+                <a href="/tags/<%= tag.text %>">
                   <div class="thumbnail tag tag-container">
                     <div class="tag-content">
                       <i class="fa <%= tag.image %>"></i>
@@ -85,7 +85,7 @@
                       <%= tag.text %>
                     </div>
                   </div>
-                <% end %>
+                </a>
               <!-- </div> -->
             </div>
           <% end  %>
@@ -134,10 +134,10 @@
                 <p class="line-spacing">
                   <% resource.tags.each do |tag| %>
                     <span class="btn btn-default btn-xs">
-                      <%= link_to(tag_path(tag)) do %>
+                      <a href="/tags/<%= tag.text %>">
                         <i class="fa <%= tag.image %>"></i>
                         &nbsp;<%= tag.text %> 
-                      <% end %>
+                      </a>
                     </span>
                     &nbsp;&nbsp;&nbsp;
                    <% end %>

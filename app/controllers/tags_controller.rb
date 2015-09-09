@@ -9,7 +9,7 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by_text(params[:text])
     render :show
   end
 

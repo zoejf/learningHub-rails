@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :resources, except: [:show]
 
   #tags
-  resources :tags
+  get '/tags/:text', to: 'tags#show', as: 'tag'
+  resources :tags, except: [:show]
 
   #sessions
   get '/login', to: 'sessions#new'
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:create, :destroy]
 end
 
-#    Prefix Verb   URI Pattern                   Controller#Action
+#  Prefix Verb   URI Pattern                   Controller#Action
 #          root GET    /                             pages#index
 #         about GET    /about(.:format)              pages#about
 #      resource GET    /resources/:name(.:format)    resources#show
@@ -36,11 +37,11 @@ end
 #               PATCH  /resources/:id(.:format)      resources#update
 #               PUT    /resources/:id(.:format)      resources#update
 #               DELETE /resources/:id(.:format)      resources#destroy
+#           tag GET    /tags/:text(.:format)         tags#show
 #          tags GET    /tags(.:format)               tags#index
 #               POST   /tags(.:format)               tags#create
 #       new_tag GET    /tags/new(.:format)           tags#new
 #      edit_tag GET    /tags/:id/edit(.:format)      tags#edit
-#           tag GET    /tags/:id(.:format)           tags#show
 #               PATCH  /tags/:id(.:format)           tags#update
 #               PUT    /tags/:id(.:format)           tags#update
 #               DELETE /tags/:id(.:format)           tags#destroy

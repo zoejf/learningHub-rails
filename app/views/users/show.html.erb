@@ -31,10 +31,10 @@
                   <p><strong>Price: </strong><%= resource.price %></p>
                   <p class="line-spacing"><% resource.tags.each do |tag| %>
                       <span class="btn btn-default btn-xs">
-                        <%= link_to(tag_path(tag)) do %>
+                        <a href="/tags/<%= tag.text %>">
                           <i class="fa <%= tag.image %>"></i>
                           &nbsp;<%= tag.text %> 
-                        <% end %>
+                        </a>
                       </span>
                       &nbsp;&nbsp;&nbsp;
                      <% end %>
