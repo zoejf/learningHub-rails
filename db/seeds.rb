@@ -40,8 +40,8 @@ html = Tag.create({image: 'fa-file-code-o', text: 'HTML/CSS'})
 sql = Tag.create({image: 'fa-database', text: 'SQL Databases'})
 advanced = Tag.create({image: 'fa-line-chart', text: 'Advanced Courses'})
 
-zoe = User.create({first_name: 'Zoe', last_name: 'Test', email: 'zoe@test.com', password: 'test'})
-demo = User.create({first_name: 'Demo', last_name: 'Demo', email: 'demo@test.com', password: 'demo'})
+zoe = User.create({first_name: 'Zoe', last_name: 'Test', email: 'zoe@test.com', password: 'password'})
+demo = User.create({first_name: 'Demo', last_name: 'Demo', email: 'demo@test.com', password: 'password'})
 
 
 kahn.tags << [teachers, online, free, beginners, community, ruby, javascript, html, sql, advanced]

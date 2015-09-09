@@ -11,7 +11,7 @@ class ResourcesController < ApplicationController
   end
 
   def show
-    @resource = Resource.find(params[:id]) 
+    @resource = Resource.find_by_name(params[:name]) 
     render :show
   end
 

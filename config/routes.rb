@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'bookmarks/create'
-
   #pages routes
   root 'pages#index'
   get '/about', to: 'pages#about'
 
   #resources
-  get '/signup', 
-  resources :resources, except: [:new, :show]
+  get '/resources/:name', to: 'resources#show', as: 'resource'
+  resources :resources, except: [:show]
 
   #tags
   resources :tags
@@ -24,17 +22,17 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
 
   #bookmarks
-  resources :bookmarks, only: [:create]
+  resources :bookmarks, only: [:create, :destroy]
 end
 
-#  Prefix Verb   URI Pattern                   Controller#Action
+#    Prefix Verb   URI Pattern                   Controller#Action
 #          root GET    /                             pages#index
 #         about GET    /about(.:format)              pages#about
+#      resource GET    /resources/:name(.:format)    resources#show
 #     resources GET    /resources(.:format)          resources#index
 #               POST   /resources(.:format)          resources#create
 #  new_resource GET    /resources/new(.:format)      resources#new
 # edit_resource GET    /resources/:id/edit(.:format) resources#edit
-#      resource GET    /resources/:id(.:format)      resources#show
 #               PATCH  /resources/:id(.:format)      resources#update
 #               PUT    /resources/:id(.:format)      resources#update
 #               DELETE /resources/:id(.:format)      resources#destroy
@@ -52,3 +50,5 @@ end
 #        signup GET    /signup(.:format)             users#new
 #       profile GET    /profile(.:format)            users#show
 #         users POST   /users(.:format)              users#create
+#     bookmarks POST   /bookmarks(.:format)          bookmarks#create
+#      bookmark DELETE /bookmarks/:id(.:format)      bookmarks#destroy
