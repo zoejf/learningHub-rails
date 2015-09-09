@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :bookmarks, dependent: :destroy
   has_many :resources, through: :bookmarks
 
+  has_many :endorsements, dependent: :destroy
+
   # validations
   validates :password, length: { minimum: 6}, on: :create
 

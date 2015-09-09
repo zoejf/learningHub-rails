@@ -1,5 +1,22 @@
 $(function() {
 
+  $('.endorsement').on('click', function() {
+    var $endorsementIcon = $(this).find('.fa');
+
+    //if not endorsed yet
+    if ($endorsementIcon.hasClass('fa-thumbs-o-up')) {
+      //fill in the thumbs-up icon 
+      $endorsementIcon.removeClass('fa-thumbs-o-up').addClass('fa-thumbs-up');
+
+      $.post('/')
+
+    //else it's already been endorsed
+    } else {
+
+    };
+
+  });
+
   $('.bookmark').on('click', function() {
     var $bookmarkIcon = $(this).find('.fa');
 

@@ -128,7 +128,21 @@
                        <% end %> 
                       </a>
                     <% end %>
-                    <span class="pull-right"><i class="fa fa-thumbs-up"> 3 people use it</i></span>
+                    <span class="pull-right">
+                        <a href="javascript:void(0)" class="endorsement" data-id="<%= resource.id %>">
+                          <% if current_user && current_user.endorsements.include?(resource) %>
+                            <i class="fa fa-thumbs-up"></i>
+                          <% else %>
+                            <i class="fa fa-thumbs-o-up"></i> 
+                          <% end %>
+                        </a>
+                      <%= resource.endorsements.length %> 
+                      <% if resource.endorsements.length == 1 %>
+                        person uses it
+                      <% else %>
+                        people use it
+                      <% end %>
+                    </span>
                   </small>
                 </h3> 
                 <p><strong>Price: </strong><%= resource.price %></p>
