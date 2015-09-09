@@ -23,7 +23,25 @@
                        <% end %> 
                       </a>
                     <% end %>
-                    <span class="pull-right"><i class="fa fa-thumbs-up"> 3 people endorse it</i></span>
+                    <span class="pull-right">
+                      <% if current_user %>
+                        <a href="javascript:void(0)" class="endorsement" data-id="<%= resource.id %>">
+                          <% if current_user.endorsements.exists?(:resource_id=>resource.id) %>
+                            <i class="fa fa-thumbs-up"></i>
+                          <% else %>
+                            <i class="fa fa-thumbs-o-up"></i> 
+                          <% end %>
+                        </a>
+                      <% else %>
+                        <i class="fa fa-users"></i> &nbsp;
+                      <% end %>
+                      <span class="endorsement-count"><%= resource.endorsements.count %> </span>
+                      <% if resource.endorsements.count == 1 %>
+                        person uses it
+                      <% else %>
+                        people use it
+                      <% end %>
+                    </span>
                   </small>
                 </h3> 
                 <p><strong>Price: </strong><%= resource.price %></p>

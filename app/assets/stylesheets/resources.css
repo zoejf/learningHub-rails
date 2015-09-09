@@ -1,0 +1,16 @@
+// Place all the styles related to the resources controller here.
+
+#resource-heading {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-sm {
+  height: 50px;
+}
+
+.resource-heading-text {
+  font-size: 35px;
+  font-family: 'Josefin Sans', sans-serif;
+}
