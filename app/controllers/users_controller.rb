@@ -15,7 +15,6 @@ class UsersController < ApplicationController
         #redirect to show page for that user
         redirect_to profile_path
       else 
-        #flash error message and redirect
         redirect_to signup_path
       end
     end

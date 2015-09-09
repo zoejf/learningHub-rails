@@ -14,7 +14,7 @@
             <strong><%= @user.full_name %></strong><br>
             <%= @user.email %>
           </address>
-
+          <%= link_to "Edit Profile", edit_profile_path %>
         </div>
         <div class="col-sm-9 col-xs-12">
           <% if @user.resources.any? %>
