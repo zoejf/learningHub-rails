@@ -18,6 +18,16 @@ class EndorsementsController < ApplicationController
   end
 
   def destroy
+    #find endorsement entry in table by resource_id
+    endorsement = current_user.endorsements.where(resource_id: params[:id])
+
+    #if that endorsement exists, delete it
+    if endorsement.any?
+      endorsement.first.destroy
+      render json: endorsement.first.destroy
+    else
+      render json: {}, status: :bad_request
+    end
   end
 
   private

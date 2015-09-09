@@ -131,7 +131,7 @@
                     <span class="pull-right">
                       <% if current_user %>
                         <a href="javascript:void(0)" class="endorsement" data-id="<%= resource.id %>">
-                          <% if current_user && current_user.endorsements.include?(resource) %>
+                          <% if current_user.endorsements.exists?(:resource_id=>resource.id) %>
                             <i class="fa fa-thumbs-up"></i>
                           <% else %>
                             <i class="fa fa-thumbs-o-up"></i> 
