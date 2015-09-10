@@ -1,0 +1,169 @@
+/*body {
+  height:;
+}*/
+
+
+#background-photo {
+  background-image: url('http://i.imgur.com/P33MTz7.jpg');
+  background-size: cover;
+  background-color: transparent;
+}
+
+.section-heading {
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.grey-color {
+  color: #333333;
+}
+
+
+/*NAVBAR STYLES*/
+.navbar-default.homepage {
+  background-color: transparent;
+  border-color: transparent;
+}
+.navbar-default .navbar-brand {
+  color: #1B7AA9;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #1B7AA9;
+}
+.navbar-nav>.open>a{
+  color: white;
+}
+.navbar-default .navbar-nav>li>a:hover {
+  color: white;
+  text-decoration: none;
+}
+.navbar-default .navbar-nav>li>a:focus {
+  color: #1B7AA9;
+} 
+.navbar-default .navbar-brand:hover {
+  color: white;
+}
+#navbar-brand {
+  font-family: 'Josefin Sans', sans-serif;
+  height: 50px;
+  margin-right: 10px;
+  padding-top: 10px;
+}
+#brand-logo {
+  display: inline-block;
+  height: 30px;
+  width: 35px;
+}
+
+/*end of navbar styles*/
+
+/*link styles*/
+body a {
+  color:#333;
+}
+body a:hover {
+  color:#1B7AA9;
+  text-decoration: none;
+}
+body a:focus {
+  color:#333;
+}
+
+#start a {
+  color: #1B7AA9;
+}
+
+#start a:hover {
+  color: white;
+}
+
+.headline {
+  text-align: center;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+}
+/*end of link styles*/
+
+p.line-spacing {
+  line-height: 2;
+}
+
+/*thumbnail styles*/
+
+.thumbnail.resource {
+  height: 100%;
+  margin-top: 20px;
+  border-color: transparent;
+}
+.thumbnail.tag {
+  text-align: center;
+  word-wrap: normal;
+}
+.thumbnail.tag:hover {
+  background-color:#c8c8c8;
+  text-decoration: none;
+}
+.logo {
+  max-height: 100px;
+}
+
+.tag-container {
+  height: 75px !important;
+  margin: 8px;
+}
+.tag-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*footer styles*/
+#footer {
+  position: relative;
+  bottom: 0;
+/*  margin-bottom: -30px;*/
+  width: 100%;
+  height: 60px;
+  background-color: #333333;
+  color: white;
+  text-align: center;
+}
+#footer-link {
+  color: white;
+}
+
+#footer-link:hover {
+  color: #1B7AA9;
+}
+// Place all the styles related to the resources controller here.
+
+#resource-heading {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-sm {
+  height: 50px;
+}
+
+.resource-heading-text {
+  font-size: 35px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
