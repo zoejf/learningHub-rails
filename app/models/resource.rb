@@ -7,6 +7,8 @@ class Resource < ActiveRecord::Base
 
   has_many :endorsements, dependent: :destroy
 
+  has_many :comments, dependent: :destroy
+
   validates :name, :website, :description, :image, :price, presence: true
 
 end

@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :endorsements, dependent: :destroy
 
+  has_many :comments, dependent: :destroy
+
   # validations
   validates :password, length: { minimum: 6}, on: :create
 

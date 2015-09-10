@@ -1,0 +1,19 @@
+<%= render 'layouts/nav' %>
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3 well">
+      <%= form_for @comment, url: {action: "create"} do |f| %>
+        <div class="form-group">
+          <%= f.text_field :title, placeholder: "Comment title", autofocus: true, :required => true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :body, placeholder: "example: 'This resource really helped me learn Rails because it had several different videos for different levels of experience...'", cols: "60", rows: "4", class: "form-control" %>
+        </div>
+        <%= f.submit "Save", class: "btn btn-default text-center" %>
+      <% end %>
+    </div>
+  </div>
+</div>

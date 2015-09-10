@@ -58,7 +58,15 @@
             <% end %>
             <br>
             <!-- comments -->
-            <i class="fa fa-commenting"></i> 2 comments <br><br>
+            <a href="#comments-section">  
+              <% if @resource.comments.count == 1 %>
+                <i class="fa fa-commenting"></i> <%= @resource.comments.length %> comment
+              <% elsif @resource.comments.length < 1 %>
+                <i class="fa fa-commenting-o"></i> &nbsp; no comments yet
+              <% elsif @resource.comments.length > 1 %>
+                <i class="fa fa-commenting"></i> <%= @resource.comments.length %> comments
+              <% end %><br><br>
+            </a>
             <p><strong>Price: </strong><%= @resource.price %></p>
           </div>
         </div>
@@ -74,28 +82,26 @@
   </div>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <h4 style="color:#1B7AA9">What are people saying about <%= @resource.name %> <small class="pull-right"><button class="btn btn-default">Add A Comment</button></small></h4>
+      <h4 style="color:#1B7AA9">What are people saying about <%= @resource.name %> <small class="pull-right"> <%= link_to "Add A Comment", new_comment_path(@resource.id), class: "btn btn-default" %>
+        </small></h4>
       <br>
-      <div class="row">
-        <div class="col-xs-12">
-          <p><strong>This is the tile</strong></p>
-          <p>by User Name</p>
-          <p>Mumblecore artisan Marfa sriracha, trust fund Pinterest small batch typewriter American Apparel authentic tote bag lumbersexual pork belly. Normcore crucifix actually farm-to-table PBR, pop-up disrupt bicycle rights cred. High Life sustainable butcher cray trust fund. Mixtape chillwave Vice, leggings wolf lomo seitan quinoa banjo migas hella.</p>
-          <hr>
-          <br>
-        </div>
-      </div>
-      <div class="row">
-       <div class="col-xs-12">
-         <p><strong>This is the tile</strong></p>
-         <p>by User Name</p>
-         <p>Mumblecore artisan Marfa sriracha, trust fund Pinterest small batch typewriter American Apparel authentic tote bag lumbersexual pork belly. Normcore crucifix actually farm-to-table PBR, pop-up disrupt bicycle rights cred. High Life sustainable butcher cray trust fund. Mixtape chillwave Vice, leggings wolf lomo seitan quinoa banjo migas hella.</p>
-         <hr>
-         <br>
-       </div>
-      </div>
-       
+      <% if @resource.comments.any? %>
+        <% @resource.comments.each do |comment| %>
+          <div class="row" id="comments-section">
+            <div class="col-xs-12">
+              <p><strong><%= comment.title %></strong></p>
+              <p><%= comment.body %></p>
+              <hr>
+              <br>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p style="text-align:center">No comments yet. Maybe you should <%= link_to "add one!", new_comment_path(@resource.id) %></p>
+        <br>
+        <br>
+      <% end %>
+      
     </div>
-
   </div>
 </div>

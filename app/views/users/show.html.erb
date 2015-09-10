@@ -39,6 +39,18 @@
                         </a>
                       <% end %>
                       <span class="pull-right">
+                        <!-- comments -->
+                        <a href="/resources/<%= resource.name %>#comments-section">
+                        <% if resource.comments.count == 1 %>
+                          <i class="fa fa-commenting"></i> <%= resource.comments.length %> comment 
+                        <% elsif resource.comments.length < 1 %>
+                          <i class="fa fa-commenting-o"></i>&nbsp; No comments yet
+                        <% elsif resource.comments.length > 1 %>
+                          <i class="fa fa-commenting"></i> <%= resource.comments.length %> comments
+                        <% end %>
+                        </a>
+                        &nbsp; &nbsp;
+                        <!-- endorsements -->
                         <% if current_user %>
                           <a href="javascript:void(0)" class="endorsement" data-id="<%= resource.id %>">
                             <% if current_user.endorsements.exists?(:resource_id=>resource.id) %>
