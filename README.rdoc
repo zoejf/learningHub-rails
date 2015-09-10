@@ -1,28 +1,12 @@
-== README
+#Scope
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Scope's mission is to make learning easier. As you set out to learn a new programming-related skill and are unsure of where to start, Scope wants to simplify the research process by bringing a lot of different information to one place. Scope users can leave comments to help others as they begin their search for new skills.
 
-Things you may want to cover:
+#Technologies Used
+*Ruby on Rails
+*Bcrypt
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+#How to Run Locally
+*Clone project
+*Bundle install
+*Start your Rails Server ('rails s' in the terminal)
