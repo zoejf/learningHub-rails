@@ -6,6 +6,7 @@ class ResourcesController < ApplicationController
 
   def new
     @resource = Resource.new
+    @tags = Tag.all
     if current_user && current_user.email == 'zoe@test.com'
       render :new
     else
@@ -15,6 +16,15 @@ class ResourcesController < ApplicationController
   end
 
   def create
+    if current_user && current_user.email == 'zoe@test.com'
+    resource = Resource.new(resource_params)
+      if resource.save
+        redirect_to "/resources/#{resource.name}"
+      end
+    else
+    redirect_to root
+    flash[:error] = "You do not have permission to perform this action."
+    end
   end
 
   def show
