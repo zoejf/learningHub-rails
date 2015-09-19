@@ -4,10 +4,17 @@ class ResourcesController < ApplicationController
     render :index
   end
 
-  def create
+  def new
+    @resource = Resource.new
+    if current_user && current_user.email == 'zoe@test.com'
+      render :new
+    else
+      redirect_to root
+      flash[:error] = "You do not have permission to view this page."
+    end
   end
 
-  def new
+  def create
   end
 
   def show
@@ -22,5 +29,10 @@ class ResourcesController < ApplicationController
   end
 
   def delete
+  end
+
+  private
+  def resource_params
+    params.require(:resource).permit(:name, :website, :price, :image, :description)
   end
 end

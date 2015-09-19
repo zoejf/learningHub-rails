@@ -1,2 +1,28 @@
-<h1>Resources#new</h1>
-<p>Find me in app/views/resources/new.html.erb</p>
+<%= render 'layouts/nav' %>
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3 well">
+      <%= form_for @resource do |f| %>
+        <div class="form-group">
+          <%= f.text_field :name, placeholder: "Resource Name", autofocus: true, :required => true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :website, placeholder: "Website", :required => true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :price, placeholder: "Price", :required => true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :image, placeholder: "Image Url", :required => true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :description, placeholder: "example: 'Udacity offers Nanodegree programs and credentials, designed so professionals become Web Developers, Data Analysts, Mobile Developers, etc. Students acquire real skills through a series of online courses and hands-on projects.'", cols: "60", rows: "4", class: "form-control" %>
+        </div>
+        <%= f.submit "Save", class: "btn btn-default text-center" %>
+      <% end %>
+    </div>
+  </div>
+</div>

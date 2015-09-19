@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   #resources
   get '/resources/:name', to: 'resources#show', as: 'resource'
-  resources :resources, except: [:show]
+  get '/admin/resources/new', to: 'resources#new'
+  resources :resources, except: [:show, :new]
 
   #tags
   get '/tags/:text', to: 'tags#show', as: 'tag'

@@ -17,6 +17,7 @@ treehouse = Resource.create({name: 'Treehouse',
                   description: "Whether you are trying to land a new job, brush up on your skills, or learn how to build your ideas, Treehouse has the right content for you. Treehouse teaches the skills necessary to get a new job or stay fresh on your game at an existing gig. Basic plans allow access to 1,000+ videos, the Code Challenge Engine, and members-only help forums. Additionally, the Pro Plan allows you to watch talks from industry leaders and other bonus content."
                   })
 
+
 ga = Resource.create({name: 'General Assembly', 
                       website: 'https://generalassemb.ly/',
                       price: 'Free online resources, 1-night workshops starting around $30, Full-time immersive programs starting at $10,500, and lots in between', 
@@ -40,7 +41,7 @@ html = Tag.create({image: 'fa-file-code-o', text: 'HTML/CSS'})
 sql = Tag.create({image: 'fa-database', text: 'SQL Databases'})
 advanced = Tag.create({image: 'fa-line-chart', text: 'Advanced Courses'})
 
-zoe = User.create({first_name: 'Zoe', last_name: 'Test', email: 'zoe@test.com', password: 'password'})
+zoe = User.create({first_name: 'Zoe', last_name: 'Foss', email: 'zoe@test.com', password: 'password'})
 demo = User.create({first_name: 'Demo', last_name: 'Demo', email: 'demo@test.com', password: 'password'})
 
 
