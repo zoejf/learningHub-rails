@@ -23,18 +23,18 @@
         </div>
         <div class="form-group">
           <label for="tag-checkboxes"> Add Tags To This Resource</label> <br>
-          <% @tags.each do |tag| -%>
-            <%= fields_for 'tag[]' , tag do |tag_fields| -%>
+          <% @tags.each do |tag| %>
             <div class="col-xs-6">
               <div class="thumbnail">
-                <%= tag_fields.check_box :id %>
-                <%= tag.text %>&nbsp;&nbsp;&nbsp;&nbsp;
+                <%= check_box_tag "tag_ids[]", tag.id %>
+                <%= tag.text %>
               </div>
             </div>
-            <% end -%>
-          <% end -%>
+          <% end %>
         </div>
-        <%= f.submit "Save", class: "btn btn-default text-center" %>
+        <div class="form-group">
+        <%= f.submit "Save", class: "btn btn-info text-center" %>
+        </div>
       <% end %>
     </div>
   </div>

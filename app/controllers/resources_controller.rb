@@ -18,6 +18,12 @@ class ResourcesController < ApplicationController
   def create
     if current_user && current_user.email == 'zoe@test.com'
     resource = Resource.new(resource_params)
+    print "RESOURCE NAME #{resource_params[:name]}"
+    print "RESOURCE PARAMS #{resource_params[:tag_ids => []]}"
+    tag_array = resource_params[:tag_ids => []]
+    print "STRING TAG IDS #{tag_array}"
+    print "INTEGER TAG IDS #{tag_array}"
+    resource.tags << tag_array
       if resource.save
         redirect_to "/resources/#{resource.name}"
       end
@@ -43,6 +49,6 @@ class ResourcesController < ApplicationController
 
   private
   def resource_params
-    params.require(:resource).permit(:name, :website, :price, :image, :description)
+    params.require(:resource).permit(:name, :website, :price, :image, :description, :tag_ids => [])
   end
 end
