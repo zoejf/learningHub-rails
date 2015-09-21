@@ -14,16 +14,25 @@
     <div class="col-sm-6 col-sm-offset-3 well" style="text-align:center">
       <h3><i class="fa fa-binoculars"></i> Suggest A Resource <br><small>Our goal is to make LearningHub the most up-to-date collection of learning tools. Please tell us if you think there is something we missed!</small></h3>
       <br>
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="name of resource or web site">
-      </div>
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="web site address (ie. http://www.kahnacademy.org">
-      </div>
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="description or reason it should be included">
-      </div>
-      <center><button class="btn btn-default" type="submit">Submit</button></center>
+      <%= form_for @message do |f| %>
+        <div class="form-group">
+            <%= f.text_field :name, placeholder: "Resource Name", autofocus: true, :required => true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :website, placeholder: "Website", :required => true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description, "Describe the Resource" %>
+            <%= f.text_area :description, placeholder: "example: 'Udacity offers Nanodegree programs and credentials, designed so professionals become Web Developers, Data Analysts, Mobile Developers, etc. Students acquire real skills through a series of online courses and hands-on projects.'", cols: "60", rows: "4", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :tags, "Suggested Tags" %>
+            <%= f.text_area :tags, placeholder: "example: Free, Professional Teachers, Ruby, Javascript... or other tags that don't yet exist", cols: "60", rows: "4", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <center><%= f.submit "Send Suggestion", class: "btn btn-default text-center" %></center>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>
