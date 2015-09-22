@@ -25,10 +25,11 @@ class ResourcesController < ApplicationController
         tag_array.push(tag)
       end
       if resource.save
-        redirect_to "/resources/#{resource.name}"
+        resource.tags << tag_array
+        redirect_to resources_path
       end
     else
-    redirect_to root
+    redirect_to root_path
     flash[:error] = "You do not have permission to perform this action."
     end
   end
