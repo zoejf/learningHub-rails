@@ -14,10 +14,11 @@ class ResourcesController < ApplicationController
       flash[:error] = "You do not have permission to view this page."
     end
   end
-
+  #create a new resource from form values; for admin permissions only 
   def create
     if current_user && current_user.email == 'zoe@test.com'
       resource = Resource.new(resource_params)
+      #array of tag_ids from f.check_box_tag comes in as an array of strings
       tag_ids = params[:tag_ids].map(&:to_i)
       tag_array = []
       tag_ids.each do |id|
